@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEarn = findViewById(R.id.angry_btn);
         btnEarn.setOnClickListener(this);
         tvAmount = findViewById(R.id.textView2);
-        db.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("Users").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 if (e!=null){

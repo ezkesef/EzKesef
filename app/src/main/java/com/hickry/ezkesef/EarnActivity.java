@@ -79,21 +79,16 @@ public class EarnActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     @Override
     public void onRewarded(RewardItem reward) {
-        Toast.makeText(getApplicationContext(),"onRewarded" ,  Toast.LENGTH_LONG).show();
-        db.collection("users").document("MMaBcETDh2t8GW0upzUL").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        Toast.makeText(getApplicationContext(), "onRewarded", Toast.LENGTH_LONG).show();
+        db.collection("Users").document("usersdocid").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Toast.makeText(getApplicationContext(),"onSuccess" ,  Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "onSuccess", Toast.LENGTH_LONG).show();
                 points = documentSnapshot.getLong("points");
                 points += 2;
-                db.collection("users").document("MMaBcETDh2t8GW0upzUL").update("points", points);}
-        }) .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-               Toast.makeText(getApplicationContext(), e.getMessage(),Toast.LENGTH_LONG) ;
+                db.collection("Users").document("usersdocid").update("points", points);
             }
-        });
-
+    });
 
 
 
